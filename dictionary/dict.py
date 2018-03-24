@@ -7,6 +7,10 @@ def lookup(key):
 	key = key.lower()
 	if key in data:
 		return data[key]
+	elif key.title() in data:
+		return data[key.title()]
+	elif key.upper() in data:
+		return data[key.upper()]
 	elif len(gcm(key, data.keys(), 1, 0.8)) > 0:
 		suggestion = gcm(key, data.keys(), 1, 0.8)[0]
 		answer = input("Did you mean '%s'? [Y/N] " % suggestion)
